@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install build dependencies
+      run: sudo apt-get install build-essential
+      
+    - name: Enter build directory
+      run: cd build
+
+    - name: Build project using Makefile
+      run: make test
+
+    - name: Run tests
+      run: .build/test
