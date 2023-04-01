@@ -19,7 +19,14 @@ jobs:
     - name: Install build dependencies
       run: sudo apt-get update && sudo apt-get install build-essential
 
-    - name: Build project using Makefile and run tests
-      run: |
-        make &&
-        ./test
+    - name: Install Valgrind
+      run: sudo apt-get install -y valgrind
+
+    - name: Build project using Makefile
+      run: make
+
+    - name: Run Valgrind memory leak check
+      run: make valgrind
+
+    - name: Run tests
+      run: ./test
