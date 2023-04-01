@@ -13,16 +13,21 @@ typedef enum {
 } lept_type;
 
 typedef struct lept_value lept_value; // forward declaration
+typedef struct lept_member lept_member;
+
 
 struct lept_value {
     union {
-        struct {lept_value* e; size_t size; } a; /* array */
-        struct { char* s; size_t len;} s; /* string */
+        struct {lept_member* m; size_t size; } o; /* object */
+        struct { lept_value* e; size_t size; } a; /* array */
+        struct { char* s; size_t len; } s; /* string */
         double n; /* number */
     } u;
     lept_type type;
 };
+struct lept_member {
 
+};
 
 enum {
     LEPT_PARSE_OK = 0,
@@ -67,7 +72,10 @@ void lept_set_string(lept_value* v, const char* s, size_t len);
 size_t lept_get_array_size(const lept_value* v);
 lept_value* lept_get_array_element(const lept_value* v, size_t index);
 
-
+size_t lept_get_object_size(const lept_value* v);
+const char* lept_get_object_key(const lept_value* v, size_t index);
+size_t lept_get_object_key_length(const lept_value* v, size_t index);
+lept_value* lept_get_object_value(const lept_value* v, size_t index);
 
 
 void lept_set_string(lept_value* v, const char* s, size_t len);
