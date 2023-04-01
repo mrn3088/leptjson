@@ -22,8 +22,10 @@ jobs:
     - name: Install CMake
       run: sudo apt-get install -y cmake
 
+    - name: Generate Makefile using CMake
+      run: cmake .
+
     - name: Build project using Makefile and run tests
       run: |
-        cd build &&
         make test &&
         ./test
