@@ -18,12 +18,9 @@ jobs:
 
     - name: Install build dependencies
       run: sudo apt-get install build-essential
-      
-    - name: Enter build directory
-      run: cd build
 
-    - name: Build project using Makefile
-      run: make test
-
-    - name: Run tests
-      run: ./test
+    - name: Build project using Makefile and run tests
+      run: |
+        cd build &&
+        make test &&
+        ./test
