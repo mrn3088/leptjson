@@ -85,4 +85,6 @@ lept_value* lept_get_object_value(const lept_value* v, size_t index);
 
 void lept_set_string(lept_value* v, const char* s, size_t len);
 
+char* lept_stringify(const lept_value* v, size_t* length);
+
 #endif /* LEPTJSON_H__ */
