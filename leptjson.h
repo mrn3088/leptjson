@@ -13,7 +13,7 @@ typedef enum {
 } lept_type;
 
 typedef struct lept_value lept_value; // forward declaration
-typedef struct lept_member lept_member;
+typedef struct lept_member lept_member; // forward declaration
 
 
 struct lept_value {
@@ -26,7 +26,9 @@ struct lept_value {
     lept_type type;
 };
 struct lept_member {
-
+    char* k; 
+    size_t klen;
+    lept_value v;
 };
 
 enum {
@@ -40,7 +42,10 @@ enum {
     LEPT_PARSE_INVALID_STRING_CHAR,
     LEPT_PARSE_INVALID_UNICODE_HEX,
     LEPT_PARSE_INVALID_UNICODE_SURROGATE,
-    LEPT_PARSE_MISS_COMMA_OR_SQUARE_BRACKET
+    LEPT_PARSE_MISS_COMMA_OR_SQUARE_BRACKET,
+    LEPT_PARSE_MISS_KEY,
+    LEPT_PARSE_MISS_COLON, 
+    LEPT_PARSE_MISS_COMMA_OR_CURLY_BRACKET
 };
 
 #define lept_init(v) do {(v)->type = LEPT_NULL; } while (0)
