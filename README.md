@@ -7,7 +7,7 @@ A tiny JSON parser, built for study only.
 *   Using standard C language
 *   Support for Unicode via UTF-8 encoding
 *   Test driven development
-*   and more, see [here](https://github.com/miloyip/json-tutorial#%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%9B%AE%E6%A0%87)
+*   API design
 
 ## Summary
 [Summary of Project Leptjson (in Chinese)](https://imwzk.com/summary-of-project-leptjson/)
